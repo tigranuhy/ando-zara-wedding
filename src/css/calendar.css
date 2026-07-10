@@ -1,0 +1,79 @@
+/* === Calendar Section === */
+
+.section--calendar {
+  background: var(--color-bg-alt);
+}
+
+.calendar {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 400px;
+}
+
+.calendar__header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.calendar__header span {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-xs);
+}
+
+.calendar__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  font-family: var(--font-sans);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: var(--color-text);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+.calendar__day--empty {
+  visibility: hidden;
+}
+
+.calendar__day--highlight {
+  position: relative;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-weight: 700;
+  box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 6px rgba(212, 175, 55, 0.3);
+  animation: ringPulse 2s infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 6px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 4px var(--color-accent), 0 0 0 10px rgba(212, 175, 55, 0.1);
+  }
+}
+
+@media (max-width: 380px) {
+  .calendar {
+    padding: var(--space-md);
+  }
+}
+

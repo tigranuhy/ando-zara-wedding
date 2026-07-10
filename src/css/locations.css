@@ -36,6 +36,7 @@
 .location-card__title {
   font-family: var(--font-serif);
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: var(--font-weight-extralight);
   color: var(--color-primary);
   margin-bottom: var(--space-sm);
 }

@@ -31,7 +31,7 @@
 .countdown__number {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 700;
+  font-weight: var(--font-weight-thin);
   color: var(--color-accent);
   line-height: 1;
   transition: transform var(--transition-fast);
@@ -46,9 +46,9 @@
   font-size: clamp(0.75rem, 2vw, 1rem);
   color: var(--color-muted);
   margin-top: var(--space-sm);
-  font-weight: 500;
+  font-weight: var(--font-weight-extralight);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
 }
 
 @keyframes flipDigit {

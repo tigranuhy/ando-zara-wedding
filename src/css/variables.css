@@ -12,8 +12,15 @@
   --color-overlay: rgba(253, 248, 244, 0.9);
 
   /* Typography */
-  --font-serif: 'Noto Serif Armenian', 'Georgia', serif;
-  --font-sans: 'Noto Sans Armenian', 'Helvetica Neue', sans-serif;
+  --font-serif: 'Montserrat', 'Georgia', serif;
+  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   /* Spacing */
   --space-xs: 0.25rem;

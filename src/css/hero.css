@@ -41,7 +41,7 @@
 .hero__names {
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 700;
+  font-weight: var(--font-weight-thin);
   color: var(--color-primary);
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -58,10 +58,10 @@
 .hero__subtitle {
   font-family: var(--font-sans);
   font-size: clamp(1rem, 3vw, 1.5rem);
-  font-weight: 300;
+  font-weight: var(--font-weight-extralight);
   color: var(--color-muted);
   margin-top: var(--space-md);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 

@@ -36,21 +36,27 @@ export function initNav() {
     });
   });
 
-  // IntersectionObserver to track active section
+  // IntersectionObserver to track active section + trigger animations
   const observerOptions = {
     root: scrollContainer,
     rootMargin: '0px',
-    threshold: 0.5,
+    threshold: 0.3,
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const id = entry.target.id;
+        // Update minimap
         dots.forEach((dot) => {
           const dotSection = dot.getAttribute('href')?.replace('#', '') || dot.dataset.section;
           dot.classList.toggle('minimap__dot--active', dotSection === id);
         });
+        // Trigger section animation
+        entry.target.classList.add('visible');
+      } else {
+        // Remove visible so animation replays on next scroll
+        entry.target.classList.remove('visible');
       }
     });
   }, observerOptions);

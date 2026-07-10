@@ -3,6 +3,7 @@
 
 @import './variables.css';
 @import './reset.css';
+@import './loader.css';
 @import './layout.css';
 @import './nav.css';
 @import './hero.css';
@@ -12,4 +13,5 @@
 @import './locations.css';
 @import './photobooth.css';
 @import './footer.css';
+@import './animations.css';
 

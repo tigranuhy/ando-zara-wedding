@@ -1,0 +1,236 @@
+/* === Per-Section Scroll Animations === */
+/* .visible is added/removed by IntersectionObserver so animations replay every time */
+
+/* === Hero: Soft fade-in + scale === */
+.section--hero .hero__content {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section--hero.visible .hero__content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* === Countdown: Title + staggered cards rise === */
+.section--countdown .section__title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.section--countdown.visible .section__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section--countdown .countdown__item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.section--countdown.visible .countdown__item:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.section--countdown.visible .countdown__item:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.section--countdown.visible .countdown__item:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.45s;
+}
+
+.section--countdown.visible .countdown__item:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+/* === Invitation: Clip-path reveal from center === */
+.section--invitation .invitation__card {
+  opacity: 0;
+  clip-path: inset(50% 50% 50% 50%);
+  transition: clip-path 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.4s ease-out;
+}
+
+.section--invitation.visible .invitation__card {
+  opacity: 1;
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+/* === Calendar: Title + 3D tilt card placement === */
+.section--calendar .section__title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.section--calendar.visible .section__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section--calendar .calendar {
+  opacity: 0;
+  transform: perspective(800px) rotateX(15deg) translateY(30px);
+  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+}
+
+.section--calendar.visible .calendar {
+  opacity: 1;
+  transform: perspective(800px) rotateX(0deg) translateY(0);
+}
+
+/* === Locations: Title + cards slide from sides === */
+.section--locations .section__title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.section--locations.visible .section__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section--locations .location-card:first-child {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s;
+}
+
+.section--locations .location-card:last-child {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s;
+}
+
+.section--locations.visible .location-card:first-child {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.section--locations.visible .location-card:last-child {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Mobile: both slide up */
+@media (max-width: 768px) {
+  .section--locations .location-card:first-child {
+    transform: translateY(40px);
+  }
+
+  .section--locations .location-card:last-child {
+    transform: translateY(40px);
+  }
+
+  .section--locations.visible .location-card:first-child,
+  .section--locations.visible .location-card:last-child {
+    transform: translateY(0);
+  }
+}
+
+/* === Photo Booth: Title + zoom/blur focus === */
+.section--photobooth .section__title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.section--photobooth.visible .section__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section--photobooth .photobooth__text {
+  opacity: 0;
+  transform: scale(1.05);
+  filter: blur(4px);
+  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s, filter 0.6s ease-out 0.2s;
+}
+
+.section--photobooth.visible .photobooth__text {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+.section--photobooth .photobooth__qr {
+  opacity: 0;
+  transform: scale(1.1);
+  filter: blur(6px);
+  transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s, filter 0.6s ease-out 0.4s;
+}
+
+.section--photobooth.visible .photobooth__qr {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* === Footer: Fade up + gold shimmer === */
+.section--footer .footer__content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.section--footer.visible .footer__content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section--footer.visible .footer__names {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    #f5e6a3 50%,
+    var(--color-accent) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 2s ease-in-out 0.3s both;
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* === Respect reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  .section--hero .hero__content,
+  .section--countdown .section__title,
+  .section--countdown .countdown__item,
+  .section--invitation .invitation__card,
+  .section--calendar .section__title,
+  .section--calendar .calendar,
+  .section--locations .section__title,
+  .section--locations .location-card:first-child,
+  .section--locations .location-card:last-child,
+  .section--photobooth .section__title,
+  .section--photobooth .photobooth__text,
+  .section--photobooth .photobooth__qr,
+  .section--footer .footer__content {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+

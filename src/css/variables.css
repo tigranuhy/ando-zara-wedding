@@ -1,15 +1,15 @@
 /* === CSS Custom Properties (Design Tokens) === */
 :root {
   /* Colors */
-  --color-bg: #FDF8F4;
-  --color-bg-alt: #F5EDE6;
-  --color-primary: #8B5E3C;
-  --color-secondary: #C9956B;
-  --color-accent: #D4AF37;
-  --color-text: #3A2E2A;
-  --color-muted: #A08070;
+  --color-bg: #F6F4EA;
+  --color-bg-alt: #E8E9DA;
+  --color-primary: #5F6B4F;
+  --color-secondary: #909C78;
+  --color-accent: #B99B5A;
+  --color-text: #3E4535;
+  --color-muted: #848F73;
   --color-white: #FFFFFF;
-  --color-overlay: rgba(253, 248, 244, 0.9);
+  --color-overlay: rgba(246, 244, 234, 0.9);
 
   /* Typography */
   --font-serif: 'Noto Serif Armenian', 'Georgia', serif;

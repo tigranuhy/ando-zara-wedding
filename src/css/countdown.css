@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.countdown__calendar-title {
+  margin-top: var(--space-xl);
+}
+
 .countdown__item {
   display: flex;
   flex-direction: column;

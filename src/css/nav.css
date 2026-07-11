@@ -30,13 +30,13 @@
 
 .minimap__dot:hover {
   color: var(--color-primary);
-  background-color: rgba(212, 175, 55, 0.1);
+  background-color: rgba(185, 155, 90, 0.1);
   transform: scale(1.1);
 }
 
 .minimap__dot--active {
   color: var(--color-accent);
-  background-color: rgba(212, 175, 55, 0.15);
+  background-color: rgba(185, 155, 90, 0.15);
 }
 
 /* On small screens, make minimap smaller */

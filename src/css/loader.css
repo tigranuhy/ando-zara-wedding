@@ -95,19 +95,19 @@
   animation: petalFall linear forwards;
 }
 
-/* Petal colors - warm rose & gold tones */
-.petal:nth-child(1) { background: rgba(212, 175, 55, 0.6); }
-.petal:nth-child(2) { background: rgba(201, 149, 107, 0.5); }
-.petal:nth-child(3) { background: rgba(212, 175, 55, 0.4); }
-.petal:nth-child(4) { background: rgba(219, 166, 150, 0.5); }
-.petal:nth-child(5) { background: rgba(201, 149, 107, 0.6); }
-.petal:nth-child(6) { background: rgba(212, 175, 55, 0.5); }
-.petal:nth-child(7) { background: rgba(219, 166, 150, 0.4); }
-.petal:nth-child(8) { background: rgba(201, 149, 107, 0.5); }
-.petal:nth-child(9) { background: rgba(212, 175, 55, 0.6); }
-.petal:nth-child(10) { background: rgba(219, 166, 150, 0.5); }
-.petal:nth-child(11) { background: rgba(212, 175, 55, 0.4); }
-.petal:nth-child(12) { background: rgba(201, 149, 107, 0.6); }
+/* Petal colors - sage green & gold tones */
+.petal:nth-child(1) { background: rgba(185, 155, 90, 0.6); }
+.petal:nth-child(2) { background: rgba(144, 156, 120, 0.5); }
+.petal:nth-child(3) { background: rgba(185, 155, 90, 0.4); }
+.petal:nth-child(4) { background: rgba(232, 233, 218, 0.6); }
+.petal:nth-child(5) { background: rgba(144, 156, 120, 0.6); }
+.petal:nth-child(6) { background: rgba(185, 155, 90, 0.5); }
+.petal:nth-child(7) { background: rgba(232, 233, 218, 0.5); }
+.petal:nth-child(8) { background: rgba(144, 156, 120, 0.5); }
+.petal:nth-child(9) { background: rgba(185, 155, 90, 0.6); }
+.petal:nth-child(10) { background: rgba(232, 233, 218, 0.6); }
+.petal:nth-child(11) { background: rgba(185, 155, 90, 0.4); }
+.petal:nth-child(12) { background: rgba(144, 156, 120, 0.6); }
 
 /* Positioning & timing for each petal */
 .petal:nth-child(1)  { left: 5%;  width: 10px; height: 14px; animation-duration: 5s; animation-delay: 1.5s; }

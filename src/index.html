@@ -59,11 +59,6 @@
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
       </svg>
     </a>
-    <a href="#calendar" class="minimap__dot" data-section="calendar" aria-label="Calendar">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-      </svg>
-    </a>
     <a href="#locations" class="minimap__dot" data-section="locations" aria-label="Locations">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
@@ -116,6 +111,23 @@
           <span class="countdown__label">վյրկ</span>
         </div>
       </div>
+
+      <h2 class="section__title countdown__calendar-title">Օգոստոս 2026</h2>
+      <div class="calendar">
+        <div class="calendar__header">
+          <span>երկ</span>
+          <span>երք</span>
+          <span>չրք</span>
+          <span>հնգ</span>
+          <span>ուրբ</span>
+          <span>շբթ</span>
+          <span>կրկ</span>
+        </div>
+        <div class="calendar__grid" id="calendar-grid">
+          <!-- JS will populate -->
+        </div>
+      </div>
+
       <a href="#invitation" class="section__arrow" aria-label="Next section">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="6 9 12 15 18 9"/>
@@ -135,30 +147,6 @@
         </p>
         <div class="invitation__divider"></div>
       </div>
-      <a href="#calendar" class="section__arrow" aria-label="Next section">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </a>
-    </section>
-
-    <!-- Section 4: Calendar -->
-    <section id="calendar" class="section section--calendar">
-      <h2 class="section__title">Օգոստոս 2026</h2>
-      <div class="calendar">
-        <div class="calendar__header">
-          <span>երկ</span>
-          <span>երք</span>
-          <span>չրք</span>
-          <span>հնգ</span>
-          <span>ուրբ</span>
-          <span>շբթ</span>
-          <span>կրկ</span>
-        </div>
-        <div class="calendar__grid" id="calendar-grid">
-          <!-- JS will populate -->
-        </div>
-      </div>
       <a href="#locations" class="section__arrow" aria-label="Next section">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="6 9 12 15 18 9"/>
@@ -166,7 +154,7 @@
       </a>
     </section>
 
-    <!-- Section 5: Locations -->
+    <!-- Section 4: Locations -->
     <section id="locations" class="section section--locations">
       <h2 class="section__title">Վայրեր</h2>
       <div class="locations__grid">
@@ -176,18 +164,20 @@
               <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
             </svg>
           </div>
-          <h3 class="location-card__title">եկեղեցի</h3>
-          <p class="location-card__address">հասցե</p>
-          <div class="location-card__map">
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=44.5126,40.1872&z=15&pt=44.5126,40.1872,pm2rdl"
-              width="100%"
-              height="200"
-             
-              loading="lazy"
-              allowfullscreen
-            ></iframe>
-          </div>
+          <h3 class="location-card__title">Սաղմոսավանք</h3>
+          <p class="location-card__address">Արագածոտնի մարզ, գ. Սաղմոսավանք</p>
+          <a
+            class="location-card__map-btn"
+            href="https://yandex.com/maps/org/monastery_saghmosavank/8680895053/?ll=44.394665%2C40.380342&z=16"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Բացել քարտեզում
+          </a>
         </div>
         <div class="location-card">
           <div class="location-card__icon">
@@ -195,18 +185,20 @@
               <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
             </svg>
           </div>
-          <h3 class="location-card__title">ռեստորան</h3>
-          <p class="location-card__address">հասցե</p>
-          <div class="location-card__map">
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=44.5200,40.1900&z=15&pt=44.5200,40.1900,pm2rdl"
-              width="100%"
-              height="200"
-             
-              loading="lazy"
-              allowfullscreen
-            ></iframe>
-          </div>
+          <h3 class="location-card__title">O2 Gardens</h3>
+          <p class="location-card__address">Սիլիկյան թաղամաս, 13-րդ փողոց, Հ 2/8</p>
+          <a
+            class="location-card__map-btn"
+            href="https://yandex.com/maps/org/o2_gardens/146485019292/?ll=44.437394%2C40.216225&z=16"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            Բացել քարտեզում
+          </a>
         </div>
       </div>
       <a href="#photobooth" class="section__arrow" aria-label="Next section">
@@ -216,7 +208,7 @@
       </a>
     </section>
 
-    <!-- Section 6: Photo Booth -->
+    <!-- Section 5: Photo Booth -->
     <section id="photobooth" class="section section--photobooth">
       <h2 class="section__title">լուսանկարներ</h2>
       <p class="photobooth__text">

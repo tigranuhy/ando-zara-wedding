@@ -1,16 +1,12 @@
 /* === Calendar Section === */
 
-.section--calendar {
-  background: var(--color-bg-alt);
-}
-
 .calendar {
   background: var(--color-white);
   border-radius: var(--radius-lg);
   padding: var(--space-lg);
   box-shadow: var(--shadow-md);
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .calendar__header {
@@ -58,16 +54,16 @@
   background: var(--color-accent);
   color: var(--color-white);
   font-weight: 700;
-  box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 6px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 6px rgba(185, 155, 90, 0.3);
   animation: ringPulse 2s infinite;
 }
 
 @keyframes ringPulse {
   0%, 100% {
-    box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 6px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 6px rgba(185, 155, 90, 0.3);
   }
   50% {
-    box-shadow: 0 0 0 4px var(--color-accent), 0 0 0 10px rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 0 4px var(--color-accent), 0 0 0 10px rgba(185, 155, 90, 0.1);
   }
 }
 

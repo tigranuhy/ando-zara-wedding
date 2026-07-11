@@ -1,44 +1,8 @@
-/* === Page Load Animation: Envelope-Seam Opening (full page) === */
-/* The whole viewport is covered by two shapes evoking an envelope's flap
-   seam: a downward-pointing triangle (top, clipped) sitting above a plain
-   full-viewport rectangle (bottom). They hold briefly, then the top
-   triangle rolls up and back in 3D (hinged at its top edge, under the
-   container's perspective) while the bottom rectangle slides straight
-   down, imitating an envelope opening and revealing the hero underneath.
-
-   The top piece is a darker green and uses filter: drop-shadow() (not
-   box-shadow, which gets clipped away by clip-path on the same element)
-   so it reads as layered above the bottom piece, like a flap casting a
-   shadow onto the pocket beneath it.
-
-   Timeline: 0-0.85s hold -> 0.85-2.15s pieces separate -> 2.25s loader hidden. */
-
 .page-loader {
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  /* A weaker (larger) perspective value barely distorts an element this
-     wide (full viewport) — it just looks like a flat shrink instead of
-     visible 3D depth. This needs to be aggressively small to read as a
-     roll rather than a slide. perspective-origin at the top matches
-     where the piece is actually hinging from.
-
-     A fixed px perspective would look completely different across
-     devices/rotations — too subtle on a large desktop, too extreme on a
-     small phone — since the same "camera distance" reads very
-     differently against very different element sizes. clamp(vh) keeps
-     the distortion strength proportionally consistent and recomputes
-     live on resize/rotation. */
-  perspective: clamp(400px, 60vh, 900px);
-  perspective-origin: 50% 0%;
-  -webkit-perspective: clamp(400px, 60vh, 900px);
-  -webkit-perspective-origin: 50% 0%;
-  /* No background here — only the two child pieces should ever paint
-     anything. A container-level background would sit behind them for the
-     whole sequence and never move, hiding the hero the entire time the
-     pieces are "revealing" it and only disappearing in one hard cut when
-     the container is hidden below, instead of a gradual reveal. */
   animation: loaderContainerHide 0.1s linear 2.25s forwards;
 }
 
@@ -53,29 +17,47 @@
 
 .loader-piece--top {
   background: var(--color-text);
-  clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
-  /* Two stacked drop-shadows: a tight, close one that hugs right along the
-     triangle's two down-facing diagonal edges (like a contact shadow at
-     the seam), plus the original soft, further-out one for overall lift.
-     Both follow the clipped triangle silhouette (drop-shadow, not
-     box-shadow — box-shadow would get clipped away by clip-path here). */
+  clip-path: polygon(
+    0% 0%, 100% 0%,
+    100% 8vw,
+    57% 25vw, 55% 25.5vw, 53% 25.8vw, 51% 26vw,
+    49% 26vw, 47% 25.8vw, 45% 25.5vw, 43% 25vw,
+    0% 8vw
+  );
+  -webkit-clip-path: polygon(
+    0% 0%, 100% 0%,
+    100% 8vw,
+    57% 25vw, 55% 25.5vw, 53% 25.8vw, 51% 26vw,
+    49% 26vw, 47% 25.8vw, 45% 25.5vw, 43% 25vw,
+    0% 8vw
+  );
   filter:
     drop-shadow(0 4px 5px rgba(0, 0, 0, 0.4))
     drop-shadow(0 12px 24px rgba(0, 0, 0, 0.3));
-  /* Hinged at its own top edge (under the parent's perspective) so it
-     tilts back and rolls away rather than just sliding off flat, like a
-     roll-top desk lid retracting. */
-  transform-origin: top center;
-  -webkit-transform-origin: top center;
-  animation-name: loaderPieceRollUp;
+  animation-name: loaderPieceUp;
   z-index: 2;
 }
 
+@media (orientation: portrait) {
+  .loader-piece--top {
+    clip-path: polygon(
+      0% 0%, 100% 0%,
+      100% 12vh,
+      62% 38vh, 59% 39.75vh, 56% 41vh, 53% 41.75vh, 50% 42vh,
+      47% 41.75vh, 44% 41vh, 41% 39.75vh, 38% 38vh,
+      0% 12vh
+    );
+    -webkit-clip-path: polygon(
+      0% 0%, 100% 0%,
+      100% 12vh,
+      62% 38vh, 59% 39.75vh, 56% 41vh, 53% 41.75vh, 50% 42vh,
+      47% 41.75vh, 44% 41vh, 41% 39.75vh, 38% 38vh,
+      0% 12vh
+    );
+  }
+}
+
 .loader-piece--bottom {
-  /* Plain full-viewport rectangle (no clip-path) — it just sits behind
-     the top triangle (lower z-index), which covers/overlaps the same
-     upper wedge rather than the two pieces needing to interlock exactly. */
   background: var(--color-primary);
   animation-name: loaderPieceDown;
   z-index: 1;
@@ -87,13 +69,9 @@
   }
 }
 
-/* Negative rotateX with the hinge at the top edge tips the triangle's
-   free (bottom/apex) tip up and backward, away from the viewer, while it
-   also retracts upward — if it looks inverted (rolling toward the
-   viewer instead), flip the sign to positive. */
-@keyframes loaderPieceRollUp {
+@keyframes loaderPieceUp {
   to {
-    transform: translateY(-45%) rotateX(-80deg);
+    transform: translateY(-100%);
   }
 }
 

@@ -12,9 +12,10 @@
   padding: var(--space-sm);
   border-radius: var(--radius-lg);
   background: var(--color-overlay);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--surface-glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .minimap__dot {

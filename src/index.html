@@ -26,22 +26,6 @@
     </div>
   </div>
 
-  <!-- Falling Petals -->
-  <div class="petals" aria-hidden="true">
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-    <div class="petal"></div>
-  </div>
-
   <!-- Navigation Minimap -->
   <nav class="minimap" aria-label="Navigation">
     <a href="#hero" class="minimap__dot minimap__dot--active" data-section="hero" aria-label="Home">
@@ -76,6 +60,28 @@
 
     <!-- Section 1: Hero -->
     <section id="hero" class="section section--hero">
+      <!-- Falling leaves: animation is gated behind .section--hero.visible
+           (toggled by nav.js's IntersectionObserver), so it replays from
+           the start every time this section scrolls into view, same as
+           the other sections' entrance effects. -->
+      <div class="leaves" aria-hidden="true">
+        <span class="leaf leaf--sm"></span>
+        <span class="leaf leaf--md"></span>
+        <span class="leaf leaf--lg"></span>
+        <span class="leaf leaf--sm"></span>
+        <span class="leaf leaf--md"></span>
+        <span class="leaf leaf--lg"></span>
+        <span class="leaf leaf--sm"></span>
+        <span class="leaf leaf--md"></span>
+        <span class="leaf leaf--lg"></span>
+        <span class="leaf leaf--sm"></span>
+        <span class="leaf leaf--md"></span>
+        <span class="leaf leaf--lg"></span>
+        <span class="leaf leaf--sm"></span>
+        <span class="leaf leaf--md"></span>
+        <span class="leaf leaf--lg"></span>
+        <span class="leaf leaf--sm"></span>
+      </div>
       <div class="hero__content">
         <div class="hero__ornament hero__ornament--top"></div>
         <h1 class="hero__names">Անդրանիկ<span class="hero__amp">և</span>Զարուհի</h1>
@@ -210,16 +216,18 @@
 
     <!-- Section 5: Photo Booth -->
     <section id="photobooth" class="section section--photobooth">
-      <h2 class="section__title">լուսանկարներ</h2>
-      <p class="photobooth__text">
-        Սկանավորեք QR կոդը և վերբեռնեք ձեր լուսանկարները։
-      </p>
-      <div class="photobooth__qr">
-        <div class="photobooth__qr-placeholder">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-            <rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="4" height="4" rx="0.5"/><rect x="18" y="18" width="4" height="4" rx="0.5"/>
-          </svg>
-          <p>QR Code</p>
+      <div class="photobooth__card">
+        <h2 class="section__title">լուսանկարներ</h2>
+        <p class="photobooth__text">
+          Սկանավորեք QR կոդը և վերբեռնեք ձեր լուսանկարները։
+        </p>
+        <div class="photobooth__qr">
+          <div class="photobooth__qr-placeholder">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <rect x="2" y="2" width="8" height="8" rx="1"/><rect x="14" y="2" width="8" height="8" rx="1"/><rect x="2" y="14" width="8" height="8" rx="1"/><rect x="14" y="14" width="4" height="4" rx="0.5"/><rect x="18" y="18" width="4" height="4" rx="0.5"/>
+            </svg>
+            <p>QR Code</p>
+          </div>
         </div>
       </div>
       <a href="#footer" class="section__arrow" aria-label="Next section">

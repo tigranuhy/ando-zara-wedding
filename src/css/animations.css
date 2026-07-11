@@ -143,44 +143,21 @@
   }
 }
 
-/* === Photo Booth: Title + zoom/blur focus === */
-.section--photobooth .section__title {
+/* === Photo Booth: Clip-path reveal from center === */
+/* Same treatment as .invitation__card, for consistency: one card, one
+   reveal, instead of three separately staggered pieces. */
+.section--photobooth .photobooth__card {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  clip-path: inset(50% 50% 50% 50%);
+  transition: clip-path 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.4s ease-out;
 }
 
-.section--photobooth.visible .section__title {
+.section--photobooth.visible .photobooth__card {
   opacity: 1;
-  transform: translateY(0);
-}
-
-.section--photobooth .photobooth__text {
-  opacity: 0;
-  transform: scale(1.05);
-  filter: blur(4px);
-  transition: opacity 0.6s ease-out 0.2s, transform 0.6s ease-out 0.2s, filter 0.6s ease-out 0.2s;
-}
-
-.section--photobooth.visible .photobooth__text {
-  opacity: 1;
-  transform: scale(1);
-  filter: blur(0);
-}
-
-.section--photobooth .photobooth__qr {
-  opacity: 0;
-  transform: scale(1.1);
-  filter: blur(6px);
-  transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s, filter 0.6s ease-out 0.4s;
-}
-
-.section--photobooth.visible .photobooth__qr {
-  opacity: 1;
-  transform: scale(1);
-  /* "none" (not blur(0)) so this stops forcing a filter render layer at
-     rest — that layer was clipping the child card's box-shadow. */
-  filter: none;
+  /* Inset stays negative (rather than 0%) so the clip region clears the
+     box-shadow instead of cropping it off. */
+  clip-path: inset(-40px);
 }
 
 /* === Footer: Fade up + gold shimmer === */
@@ -225,9 +202,7 @@
   .section--locations .section__title,
   .section--locations .location-card:first-child,
   .section--locations .location-card:last-child,
-  .section--photobooth .section__title,
-  .section--photobooth .photobooth__text,
-  .section--photobooth .photobooth__qr,
+  .section--photobooth .photobooth__card,
   .section--footer .footer__content {
     opacity: 1 !important;
     transform: none !important;

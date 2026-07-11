@@ -4,12 +4,26 @@
   background: var(--color-bg-alt);
 }
 
+/* Whole-section-content card, same treatment as .invitation__card, so this
+   section is visually consistent with the others (title + text + QR all
+   inside one glass card instead of loose content next to a small card). */
+.photobooth__card {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  padding: var(--space-xl);
+  background: var(--surface-glass);
+  border: 1px solid var(--surface-glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
 .photobooth__text {
   font-family: var(--font-sans);
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: var(--color-text);
-  text-align: center;
-  max-width: 500px;
   margin-bottom: var(--space-xl);
   line-height: 1.7;
 }
@@ -19,6 +33,8 @@
   justify-content: center;
 }
 
+/* Now nested inside .photobooth__card, so this is just a dashed "frame"
+   affordance rather than its own card — no separate background/shadow. */
 .photobooth__qr-placeholder {
   display: flex;
   flex-direction: column;
@@ -30,10 +46,6 @@
   border-radius: var(--radius-lg);
   color: var(--color-muted);
   gap: var(--space-sm);
-  background: var(--surface-glass);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-md);
 }
 
 .photobooth__qr-placeholder p {
@@ -46,3 +58,8 @@
   height: 80px;
 }
 
+@media (max-width: 480px) {
+  .photobooth__card {
+    padding: var(--space-lg) var(--space-md);
+  }
+}

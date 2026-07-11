@@ -1,0 +1,162 @@
+/* === Falling Leaves (Hero) === */
+/* Scoped to .section--hero (absolute, clipped by the section's own
+   overflow: hidden) rather than a page-wide fixed overlay, so it's a
+   "full section" effect that scrolls away with the hero like everything
+   else in it. Sizes are mixed (--sm/--md/--lg) for depth/variety, and the
+   fall distance (120vh) comfortably clears the section's full height,
+   including the vh/dvh gap on mobile browser chrome — any overshoot is
+   invisible since it's clipped anyway.
+
+   Animation only runs under .section--hero.visible (added/removed by the
+   IntersectionObserver in nav.js, same as every other section's entrance
+   effect) — applying the `animation` property fresh each time a class is
+   added restarts it at 0%, so this replays every time you scroll back to
+   the hero instead of only playing once on page load. */
+
+.leaves {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.leaf {
+  position: absolute;
+  top: -8%;
+  /* Classic CSS "leaf" shape: opposite corners sharp (0%), the other two
+     fully rounded (100%) — a pointed oval with a tip and a stem-point on
+     a diagonal, much closer to a real leaf silhouette than a plain
+     teardrop/blob. */
+  border-radius: 0% 100% 0% 100%;
+  opacity: 0;
+  /* No animation-name at rest. Re-applying it below (rather than just
+     toggling animation-play-state) is what makes it restart at 0% every
+     time .visible comes back — a paused/resumed animation would instead
+     just pick up wherever it left off. ease-in-out (not linear) is what
+     makes the left-right sway below read as a pendulum swing rather than
+     a mechanical snap between directions. */
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.section--hero.visible .leaf {
+  animation-name: leafFall;
+  will-change: transform;
+}
+
+/* Mirror the point diagonal on alternating leaves for variety. */
+.leaf:nth-child(even) {
+  border-radius: 100% 0% 100% 0%;
+}
+
+/* Faint center vein running tip-to-stem along the same diagonal as each
+   leaf's points — skipped on --sm since a 1px line is imperceptible (and
+   already blurred away) at that size anyway. */
+.leaf--md::after,
+.leaf--lg::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78%;
+  height: 1px;
+  background: rgba(62, 69, 53, 0.22);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.leaf:nth-child(even).leaf--md::after,
+.leaf:nth-child(even).leaf--lg::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Size tiers — bigger leaves fall a little faster/less blurred to read as
+   closer, smaller ones drift slower and softer to read as farther away. */
+.leaf--sm {
+  width: 7px;
+  height: 10px;
+  filter: blur(0.3px);
+}
+.leaf--md {
+  width: 13px;
+  height: 18px;
+}
+.leaf--lg {
+  width: 20px;
+  height: 27px;
+  filter: blur(0.2px);
+}
+
+/* Colors: sage green, gold, and pale cream tones cycled across leaves. */
+.leaf:nth-child(3n+1) { background: rgba(185, 155, 90, 0.6); }
+.leaf:nth-child(3n+2) { background: rgba(144, 156, 120, 0.55); }
+.leaf:nth-child(3n+3) { background: rgba(232, 233, 218, 0.65); }
+
+/* Horizontal spread + per-leaf timing. Negative delays start each leaf
+   mid-cycle immediately on load/replay instead of everything bunching up
+   at the top at once. */
+.leaf:nth-child(1)  { left: 2%;  animation-duration: 9s;    animation-delay: -1s;  }
+.leaf:nth-child(2)  { left: 9%;  animation-duration: 11s;   animation-delay: -4s;  }
+.leaf:nth-child(3)  { left: 16%; animation-duration: 13s;   animation-delay: -7s;  }
+.leaf:nth-child(4)  { left: 24%; animation-duration: 8.5s;  animation-delay: -2s;  }
+.leaf:nth-child(5)  { left: 32%; animation-duration: 12s;   animation-delay: -9s;  }
+.leaf:nth-child(6)  { left: 40%; animation-duration: 10s;   animation-delay: -5s;  }
+.leaf:nth-child(7)  { left: 47%; animation-duration: 9.5s;  animation-delay: -3s;  }
+.leaf:nth-child(8)  { left: 55%; animation-duration: 13.5s; animation-delay: -10s; }
+.leaf:nth-child(9)  { left: 62%; animation-duration: 8.8s;  animation-delay: -6s;  }
+.leaf:nth-child(10) { left: 70%; animation-duration: 11.5s; animation-delay: -1.5s; }
+.leaf:nth-child(11) { left: 77%; animation-duration: 10.5s; animation-delay: -8s;  }
+.leaf:nth-child(12) { left: 85%; animation-duration: 9.2s;  animation-delay: -4.5s; }
+.leaf:nth-child(13) { left: 92%; animation-duration: 12.5s; animation-delay: -11s; }
+.leaf:nth-child(14) { left: 12%; animation-duration: 14s;   animation-delay: -6.5s; }
+.leaf:nth-child(15) { left: 58%; animation-duration: 9.8s;  animation-delay: -2.5s; }
+.leaf:nth-child(16) { left: 80%; animation-duration: 11.8s; animation-delay: -9.5s; }
+
+/* translateY always progresses steadily downward (0 -> 120vh in even
+   steps); translateX/rotate oscillate back and forth around that descent
+   like a pendulum, instead of spinning through a full 360deg like the old
+   version — real leaves sway side to side as they fall, they don't tumble
+   in continuous circles. vw (not px) for the sway distance so it stays
+   proportional to screen width on any device. */
+@keyframes leafFall {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) rotate(-4deg);
+  }
+  8% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateY(24vh) translateX(4vw) rotate(14deg);
+  }
+  40% {
+    transform: translateY(48vh) translateX(-4.5vw) rotate(-16deg);
+  }
+  60% {
+    transform: translateY(72vh) translateX(4vw) rotate(15deg);
+  }
+  80% {
+    transform: translateY(96vh) translateX(-3.5vw) rotate(-13deg);
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(120vh) translateX(2vw) rotate(6deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaves {
+    display: none;
+  }
+}
+
+/* Thin out the leaf count on small screens to keep paint/compositing cheap.
+   Checks both width and height so a phone in landscape (short but wide)
+   still gets thinned, not just portrait. */
+@media (max-width: 480px), (max-height: 480px) {
+  .leaf:nth-child(n+11) {
+    display: none;
+  }
+}

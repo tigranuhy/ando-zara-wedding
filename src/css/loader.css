@@ -68,86 +68,9 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* === Floating Petals === */
-.petals {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9998;
-  overflow: hidden;
-  animation: petalsContainerFade 1s ease-out 6s forwards;
-}
-
-@keyframes petalsContainerFade {
-  to { opacity: 0; visibility: hidden; }
-}
-
-.petal {
-  position: absolute;
-  top: -40px;
-  width: 12px;
-  height: 16px;
-  border-radius: 50% 0 50% 50%;
-  opacity: 0;
-  animation: petalFall linear forwards;
-}
-
-/* Petal colors - sage green & gold tones */
-.petal:nth-child(1) { background: rgba(185, 155, 90, 0.6); }
-.petal:nth-child(2) { background: rgba(144, 156, 120, 0.5); }
-.petal:nth-child(3) { background: rgba(185, 155, 90, 0.4); }
-.petal:nth-child(4) { background: rgba(232, 233, 218, 0.6); }
-.petal:nth-child(5) { background: rgba(144, 156, 120, 0.6); }
-.petal:nth-child(6) { background: rgba(185, 155, 90, 0.5); }
-.petal:nth-child(7) { background: rgba(232, 233, 218, 0.5); }
-.petal:nth-child(8) { background: rgba(144, 156, 120, 0.5); }
-.petal:nth-child(9) { background: rgba(185, 155, 90, 0.6); }
-.petal:nth-child(10) { background: rgba(232, 233, 218, 0.6); }
-.petal:nth-child(11) { background: rgba(185, 155, 90, 0.4); }
-.petal:nth-child(12) { background: rgba(144, 156, 120, 0.6); }
-
-/* Positioning & timing for each petal */
-.petal:nth-child(1)  { left: 5%;  width: 10px; height: 14px; animation-duration: 5s; animation-delay: 1.5s; }
-.petal:nth-child(2)  { left: 15%; width: 14px; height: 18px; animation-duration: 6s; animation-delay: 1.8s; }
-.petal:nth-child(3)  { left: 25%; width: 8px;  height: 12px; animation-duration: 5.5s; animation-delay: 2.0s; }
-.petal:nth-child(4)  { left: 35%; width: 12px; height: 16px; animation-duration: 6.5s; animation-delay: 1.6s; }
-.petal:nth-child(5)  { left: 45%; width: 10px; height: 14px; animation-duration: 5s; animation-delay: 2.2s; }
-.petal:nth-child(6)  { left: 55%; width: 14px; height: 18px; animation-duration: 5.8s; animation-delay: 1.7s; }
-.petal:nth-child(7)  { left: 65%; width: 9px;  height: 13px; animation-duration: 6.2s; animation-delay: 2.4s; }
-.petal:nth-child(8)  { left: 75%; width: 12px; height: 16px; animation-duration: 5.3s; animation-delay: 1.9s; }
-.petal:nth-child(9)  { left: 85%; width: 11px; height: 15px; animation-duration: 6s; animation-delay: 2.1s; }
-.petal:nth-child(10) { left: 92%; width: 10px; height: 14px; animation-duration: 5.5s; animation-delay: 2.5s; }
-.petal:nth-child(11) { left: 10%; width: 13px; height: 17px; animation-duration: 6.8s; animation-delay: 2.8s; }
-.petal:nth-child(12) { left: 50%; width: 11px; height: 15px; animation-duration: 5.2s; animation-delay: 3.0s; }
-
-@keyframes petalFall {
-  0% {
-    opacity: 0;
-    transform: translateX(0) rotate(0deg) scale(0.8);
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(80px) rotate(360deg) translateY(100vh) scale(0.4);
-  }
-}
-
-/* Alternate petals drift the other direction */
-.petal:nth-child(even) {
-  border-radius: 0 50% 50% 50%;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .page-loader {
     animation: none;
-    display: none;
-  }
-  .petals {
     display: none;
   }
 }

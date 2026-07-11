@@ -54,7 +54,7 @@
 
 @media (orientation: portrait) {
   .loader-seal {
-    top: 29.4vh;
+    top: 49.1vh;
     width: clamp(90px, 16vh, 170px);
   }
 }
@@ -164,17 +164,17 @@
   .loader-piece--top-shadow {
     clip-path: polygon(
       0% 0%, 100% 0%,
-      100% 22vh,
-      57% 28.9vh, 55% 29.15vh, 53% 29.3vh, 51% 29.4vh,
-      49% 29.4vh, 47% 29.3vh, 45% 29.15vh, 43% 28.9vh,
-      0% 22vh
+      100% 37vh,
+      57% 48.2vh, 55% 48.65vh, 53% 48.92vh, 51% 49.1vh,
+      49% 49.1vh, 47% 48.92vh, 45% 48.65vh, 43% 48.2vh,
+      0% 37vh
     );
     -webkit-clip-path: polygon(
       0% 0%, 100% 0%,
-      100% 22vh,
-      57% 28.9vh, 55% 29.15vh, 53% 29.3vh, 51% 29.4vh,
-      49% 29.4vh, 47% 29.3vh, 45% 29.15vh, 43% 28.9vh,
-      0% 22vh
+      100% 37vh,
+      57% 48.2vh, 55% 48.65vh, 53% 48.92vh, 51% 49.1vh,
+      49% 49.1vh, 47% 48.92vh, 45% 48.65vh, 43% 48.2vh,
+      0% 37vh
     );
   }
 }

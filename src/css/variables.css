@@ -10,6 +10,8 @@
   --color-muted: #848F73;
   --color-white: #FFFFFF;
   --color-overlay: rgba(246, 244, 234, 0.9);
+  --surface-glass: rgba(255, 255, 255, 0.6);
+  --surface-glass-border: rgba(255, 255, 255, 0.5);
 
   /* Typography */
   --font-serif: 'Noto Serif Armenian', 'Georgia', serif;
@@ -42,8 +44,8 @@
   --transition-slow: 600ms ease;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(58, 46, 42, 0.08);
-  --shadow-md: 0 4px 16px rgba(58, 46, 42, 0.12);
-  --shadow-lg: 0 8px 32px rgba(58, 46, 42, 0.16);
+  --shadow-sm: 0 2px 8px rgba(62, 69, 53, 0.08);
+  --shadow-md: 0 4px 16px rgba(62, 69, 53, 0.12);
+  --shadow-lg: 0 8px 32px rgba(62, 69, 53, 0.16);
 }
 

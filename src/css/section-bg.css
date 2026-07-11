@@ -1,0 +1,36 @@
+/* === Decorative Section Background (leaf corners) === */
+/* Applied to every section except the hero and footer. Three layered images:
+   a top strip and a bottom strip (each corner-anchored, scaled to the
+   section's full width so they never crop or distort) and a middle strip
+   that repeats vertically to fill whatever space remains between them.
+   The top/bottom strips have a feathered alpha edge (fading toward the
+   middle strip) so the seam between them dissolves instead of cutting hard. */
+
+.section--countdown,
+.section--invitation,
+.section--locations,
+.section--photobooth {
+  /* Establish a local stacking context so the ::before's z-index: -1 is
+     guaranteed to land behind this section's own content, not the page. */
+  isolation: isolate;
+}
+
+.section--countdown::before,
+.section--invitation::before,
+.section--locations::before,
+.section--photobooth::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    url('../assets/images/section-bg-top.webp'),
+    url('../assets/images/section-bg-bottom.webp'),
+    url('../assets/images/section-bg-middle.webp');
+  background-repeat: no-repeat, no-repeat, repeat-y;
+  background-position: top center, bottom center, top center;
+  /* All three layers use "100% auto" (width-driven, height auto) so they
+     scale by the same factor and stay proportional at any viewport size. */
+  background-size: 100% auto, 100% auto, 100% auto;
+}

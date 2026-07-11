@@ -9,7 +9,10 @@
   width: 100%;
   text-align: center;
   padding: var(--space-xl);
-  background: var(--color-white);
+  background: var(--surface-glass);
+  border: 1px solid var(--surface-glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
 }

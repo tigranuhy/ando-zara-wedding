@@ -30,7 +30,10 @@
   border-radius: var(--radius-lg);
   color: var(--color-muted);
   gap: var(--space-sm);
-  background: var(--color-white);
+  background: var(--surface-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
 }
 
 .photobooth__qr-placeholder p {

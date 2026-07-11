@@ -65,7 +65,9 @@
 
 .section--invitation.visible .invitation__card {
   opacity: 1;
-  clip-path: inset(0% 0% 0% 0%);
+  /* Inset stays negative (rather than 0%) so the clip region clears the
+     box-shadow instead of cropping it off. */
+  clip-path: inset(-40px);
 }
 
 /* === Calendar (merged into countdown): title + 3D tilt card placement === */
@@ -176,7 +178,9 @@
 .section--photobooth.visible .photobooth__qr {
   opacity: 1;
   transform: scale(1);
-  filter: blur(0);
+  /* "none" (not blur(0)) so this stops forcing a filter render layer at
+     rest — that layer was clipping the child card's box-shadow. */
+  filter: none;
 }
 
 /* === Footer: Fade up + gold shimmer === */

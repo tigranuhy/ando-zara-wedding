@@ -1,4 +1,4 @@
-# Անdelays ❤️ Զdelays — Wedding Invitation
+# Andranik ❤️ Zara — Wedding Invitation
 
 Wedding invitation website for Andranik & Zaruhi. Single-page, mobile-first, Armenian-language.
 

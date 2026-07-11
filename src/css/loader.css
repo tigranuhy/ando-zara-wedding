@@ -3,14 +3,14 @@
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  animation: loaderContainerHide 0.1s linear 2.25s forwards;
+  animation: loaderContainerHide 0.1s linear 3s forwards;
 }
 
 .loader-piece {
   position: absolute;
   inset: 0;
   animation-duration: 1.3s;
-  animation-delay: 0.85s;
+  animation-delay: 1.6s;
   animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
   animation-fill-mode: forwards;
 }

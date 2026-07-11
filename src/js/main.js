@@ -18,6 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // the next time the hero scrolls back into view.
   window.setTimeout(() => {
     document.body.classList.add('loaded');
-  }, 2350);
+  }, 3100);
 });
 

@@ -7,10 +7,10 @@
   transform: scale(0.95);
   transition: opacity 1s ease-out, transform 1s ease-out;
   /* Delayed so this plays out *while* the loader's two pieces are
-     separating (loader.css, 0.85s-2.15s) instead of finishing underneath
+     separating (loader.css, 1.6s-2.9s) instead of finishing underneath
      them before the reveal even starts. Cancelled below once body.loaded
      is set (main.js), so scrolling back to the hero later stays snappy. */
-  transition-delay: 0.8s;
+  transition-delay: 1.55s;
 }
 
 .section--hero.visible .hero__content {

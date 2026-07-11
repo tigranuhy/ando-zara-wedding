@@ -22,9 +22,9 @@ Deployment uses Wrangler CLI directly (`npx wrangler login` once to authenticate
 
 ## Architecture
 
-**Single HTML file, section-based.** `src/index.html` contains every section of the page (hero, countdown, invitation, calendar, locations, photo booth, footer) plus a fixed "minimap" nav. There is no routing or templating — new content means editing this file directly.
+**Single HTML file, section-based.** `src/index.html` contains every section of the page (hero, countdown, invitation, calendar, locations, photo booth, footer). There is no routing or templating — new content means editing this file directly.
 
-**Full-viewport scroll-snap sections.** `src/css/layout.css` defines `.scroll-container` (`scroll-snap-type: y mandatory`) and `.section` (`scroll-snap-align: start`, `min-height: 100dvh`). Every top-level section in `index.html` gets the `.section` class and an `id` matching its minimap dot's `data-section`/`href`. Sections have an optional `.section__arrow` link to scroll to the next section.
+**Full-viewport scroll-snap sections.** `src/css/layout.css` defines `.scroll-container` (`scroll-snap-type: y mandatory`) and `.section` (`scroll-snap-align: start`, `min-height: 100dvh`). Every top-level section in `index.html` gets the `.section` class and an `id` (the scroll target for the section's own `.section__arrow` link). Sections have an optional `.section__arrow` link to scroll to the next section.
 
 **CSS is split by section/concern and loaded via `@import` chain**, not bundled separately — `src/css/main.css` is the single entry point importing, in cascade order: `variables.css` (design tokens) → `reset.css` → `loader.css` → `layout.css` → `nav.css` → one file per section → `animations.css`. When adding a new section, add both the CSS file and its `@import` line (order matters for cascade).
 
@@ -33,14 +33,14 @@ Deployment uses Wrangler CLI directly (`npx wrangler login` once to authenticate
 **JS is small ES module per feature, wired up in `src/js/main.js`.** Each module exports a single `init*()` function (`initCountdown`, `initNav`, `initCalendar`) called on `DOMContentLoaded`. Modules query their own DOM elements by ID/class and no-op if not found (`if (!el) return;`), so `main.js` can call all initializers unconditionally regardless of which sections exist on the page.
 
 - `countdown.js` — computes remaining time to the hardcoded `WEDDING_DATE` and updates `#countdown-{days,hours,minutes,seconds}` every second, adding a `.flip` class to trigger a CSS animation on value change.
-- `nav.js` — wires minimap dot clicks and section-arrow clicks to `scrollIntoView`, and uses an `IntersectionObserver` (rootMargin 0, threshold 0.3) to both highlight the active minimap dot and toggle a `.visible` class on sections for scroll-triggered animations (removed when out of view so animations replay on re-entry).
+- `nav.js` — wires section-arrow clicks to `scrollIntoView`, and uses an `IntersectionObserver` (rootMargin 0, threshold 0.3) to toggle a `.visible` class on sections for scroll-triggered animations (removed when out of view so animations replay on re-entry).
 - `calendar.js` — builds the static August 2026 calendar grid into `#calendar-grid` at runtime (Monday-first week), highlighting day 30.
 
 **Locations section links out rather than embedding.** `location-card__map-btn` anchors link directly to Yandex Maps org URLs (opens the native app or browser) instead of embedding map iframes/widgets.
 
 ## Conventions
 
-- BEM-style class names (`block__element--modifier`), e.g. `minimap__dot--active`, `location-card__map-btn`.
+- BEM-style class names (`block__element--modifier`), e.g. `calendar__day--highlight`, `location-card__map-btn`.
 - Fonts: `Noto Serif Armenian` for headings/serif text, `Montserrat` for body — both referenced via `--font-serif`/`--font-sans` tokens.
 - Use `dvh` units (with `vh` fallback where relevant) for viewport height due to mobile browser chrome.
 - Target support requires `-webkit-` prefixes for scroll-snap and similar features (see Autoprefixer config in `postcss.config.cjs`); avoid bleeding-edge CSS/JS APIs.

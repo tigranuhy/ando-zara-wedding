@@ -71,4 +71,31 @@
   margin-top: var(--space-sm);
 }
 
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero__ornament {
+    width: 70px;
+    height: 24px;
+    margin: 0 auto var(--space-xs);
+  }
+
+  .hero__ornament--bottom {
+    margin: var(--space-xs) auto 0;
+  }
+
+  .hero__names {
+    font-size: clamp(1.6rem, 9vh, 2.6rem);
+    line-height: 1.05;
+  }
+
+  .hero__subtitle {
+    font-size: clamp(0.7rem, 3vh, 1rem);
+    margin-top: var(--space-xs);
+  }
+
+  .hero__date {
+    font-size: clamp(0.8rem, 3vh, 1.1rem);
+    margin-top: 2px;
+  }
+}
+
 

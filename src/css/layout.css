@@ -62,3 +62,28 @@
   letter-spacing: 0.05em;
 }
 
+/* Short landscape viewports (mobile in landscape): stacked section content
+   easily exceeds the available height, forcing a scroll within a single
+   snapped section instead of fitting it fully. Compact the shared
+   padding/title everywhere; individual sections add their own overrides
+   for their specific content (cards, images, etc). */
+@media (orientation: landscape) and (max-height: 500px) {
+  .section {
+    padding: var(--space-md);
+  }
+
+  .section__title {
+    font-size: clamp(1.1rem, 5vh, 1.7rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .section__arrow {
+    bottom: var(--space-xs);
+  }
+
+  .section__arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+

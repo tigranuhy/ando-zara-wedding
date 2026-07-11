@@ -63,3 +63,30 @@
     padding: var(--space-lg) var(--space-md);
   }
 }
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .photobooth__card {
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  .photobooth__text {
+    font-size: clamp(0.75rem, 2.8vh, 0.95rem);
+    margin-bottom: var(--space-sm);
+    line-height: 1.35;
+  }
+
+  .photobooth__qr-placeholder {
+    width: clamp(90px, 28vh, 140px);
+    height: clamp(90px, 28vh, 140px);
+    gap: 2px;
+  }
+
+  .photobooth__qr-placeholder p {
+    font-size: 0.65rem;
+  }
+
+  .photobooth__qr-placeholder svg {
+    width: clamp(35px, 11vh, 55px);
+    height: clamp(35px, 11vh, 55px);
+  }
+}

@@ -86,3 +86,47 @@
   }
 }
 
+/* Short landscape viewports (mobile in landscape): stacking two full
+   cards vertically (the <768px rule above) overflows the available
+   height. Keep them side-by-side instead — there's enough width even on
+   the narrowest common landscape phones — and compact each card. This
+   comes after the stacking rule above so it wins when both match. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .locations__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+  }
+
+  .section--locations {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .location-card {
+    padding: var(--space-sm);
+  }
+
+  .location-card__icon {
+    margin-bottom: var(--space-xs);
+  }
+
+  .location-card__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .location-card__title {
+    font-size: clamp(0.8rem, 3.5vh, 1.1rem);
+    margin-bottom: 2px;
+  }
+
+  .location-card__address {
+    font-size: clamp(0.65rem, 2.5vh, 0.8rem);
+    margin-bottom: var(--space-xs);
+  }
+
+  .location-card__map-btn {
+    padding: 0.35rem 0.5rem;
+    font-size: clamp(0.65rem, 2.5vh, 0.8rem);
+  }
+}
+

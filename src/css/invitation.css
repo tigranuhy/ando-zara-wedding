@@ -47,3 +47,23 @@
   }
 }
 
+@media (orientation: landscape) and (max-height: 500px) {
+  .invitation__card {
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  .invitation__divider {
+    margin: var(--space-xs) auto;
+  }
+
+  .invitation__title {
+    font-size: clamp(1.1rem, 4.5vh, 1.6rem);
+    margin-bottom: var(--space-xs);
+  }
+
+  .invitation__text {
+    font-size: clamp(0.75rem, 2.8vh, 0.95rem);
+    line-height: 1.35;
+  }
+}
+

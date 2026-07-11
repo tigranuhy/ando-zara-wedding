@@ -39,6 +39,26 @@
   z-index: 18;
 }
 
+.loader-seal {
+  left: 50%;
+  top: 26vw;
+  right: auto;
+  bottom: auto;
+  width: clamp(80px, 10vw, 160px);
+  height: auto;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.35));
+  animation-name: loaderSealUp;
+  z-index: 19;
+}
+
+@media (orientation: portrait) {
+  .loader-seal {
+    top: 29.4vh;
+    width: clamp(90px, 16vh, 170px);
+  }
+}
+
 .loader-piece--top-shadow {
   background: #555555;
 }
@@ -174,6 +194,15 @@
 @keyframes loaderPieceUp {
   to {
     transform: translateY(-100%);
+  }
+}
+
+@keyframes loaderSealUp {
+  from {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  to {
+    transform: translate(-50%, -50%) translateY(-100vh);
   }
 }
 

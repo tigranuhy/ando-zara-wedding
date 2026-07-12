@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initCalendar();
 
+  const fontsLink = document.getElementById('google-fonts');
+  if (fontsLink) fontsLink.media = 'all';
+
   // Marks the page past the envelope-seam loader (see loader.css /
   // animations.css) so the hero's entrance delay — timed to emerge
   // *during* the two pieces separating on first load — doesn't also apply

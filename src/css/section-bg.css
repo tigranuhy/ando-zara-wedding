@@ -7,7 +7,6 @@
    middle strip) so the seam between them dissolves instead of cutting hard. */
 
 .section--countdown,
-.section--invitation,
 .section--locations,
 .section--photobooth {
   /* Establish a local stacking context so the ::before's z-index: -1 is
@@ -16,7 +15,6 @@
 }
 
 .section--countdown::before,
-.section--invitation::before,
 .section--locations::before,
 .section--photobooth::before {
   content: '';

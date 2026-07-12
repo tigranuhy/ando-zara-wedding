@@ -7,6 +7,22 @@
     var(--color-bg-alt) 50%,
     var(--color-bg) 100%
   );
+  isolation: isolate;
+}
+
+.section--hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    url('../assets/images/hero-bg-top.webp'),
+    url('../assets/images/hero-bg-bottom.webp'),
+    url('../assets/images/hero-bg-middle.webp');
+  background-repeat: no-repeat, no-repeat, repeat-y;
+  background-position: top center, bottom center, top center;
+  background-size: 100% auto, 100% auto, 100% auto;
 }
 
 .hero__content {

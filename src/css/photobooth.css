@@ -5,7 +5,7 @@
 }
 
 /* Whole-section-content card, same treatment as .invitation__card, so this
-   section is visually consistent with the others (title + text + QR all
+   section is visually consistent with the others (title + text + button all
    inside one glass card instead of loose content next to a small card). */
 .photobooth__card {
   max-width: 500px;
@@ -28,34 +28,27 @@
   line-height: 1.7;
 }
 
-.photobooth__qr {
-  display: flex;
-  justify-content: center;
-}
-
-/* Now nested inside .photobooth__card, so this is just a dashed "frame"
-   affordance rather than its own card — no separate background/shadow. */
-.photobooth__qr-placeholder {
-  display: flex;
-  flex-direction: column;
+.photobooth__btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 200px;
-  border: 2px dashed var(--color-secondary);
+  width: 100%;
+  padding: 1rem 1.5rem;
   border-radius: var(--radius-lg);
-  color: var(--color-muted);
-  gap: var(--space-sm);
+  border: 1px solid rgba(144, 156, 120, 0.4);
+  background: rgba(144, 156, 120, 0.25);
+  color: var(--color-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(0.95rem, 2.3vw, 1.1rem);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition-normal), color var(--transition-normal);
 }
 
-.photobooth__qr-placeholder p {
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.photobooth__qr-placeholder svg {
-  width: 80px;
-  height: 80px;
+.photobooth__btn:hover {
+  background: var(--color-secondary);
+  color: var(--color-white);
 }
 
 @media (max-width: 480px) {
@@ -75,18 +68,8 @@
     line-height: 1.35;
   }
 
-  .photobooth__qr-placeholder {
-    width: clamp(90px, 28vh, 140px);
-    height: clamp(90px, 28vh, 140px);
-    gap: 2px;
-  }
-
-  .photobooth__qr-placeholder p {
-    font-size: 0.65rem;
-  }
-
-  .photobooth__qr-placeholder svg {
-    width: clamp(35px, 11vh, 55px);
-    height: clamp(35px, 11vh, 55px);
+  .photobooth__btn {
+    padding: 0.6rem 1.2rem;
+    font-size: clamp(0.8rem, 2.8vh, 0.95rem);
   }
 }

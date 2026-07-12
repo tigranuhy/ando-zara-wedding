@@ -172,37 +172,6 @@ body.loaded .section--hero .hero__content {
   clip-path: inset(-40px);
 }
 
-/* === Footer: Fade up + gold shimmer === */
-.section--footer .footer__content {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-
-.section--footer.visible .footer__content {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.section--footer.visible .footer__names {
-  background: linear-gradient(
-    90deg,
-    var(--color-accent) 0%,
-    #E4D4A8 50%,
-    var(--color-accent) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: goldShimmer 2s ease-in-out 0.3s both;
-}
-
-@keyframes goldShimmer {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
-}
-
 /* === Respect reduced motion === */
 @media (prefers-reduced-motion: reduce) {
   .section--hero .hero__content,
@@ -214,8 +183,7 @@ body.loaded .section--hero .hero__content {
   .section--locations .section__title,
   .section--locations .location-card:first-child,
   .section--locations .location-card:last-child,
-  .section--photobooth .photobooth__card,
-  .section--footer .footer__content {
+  .section--photobooth .photobooth__card {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;

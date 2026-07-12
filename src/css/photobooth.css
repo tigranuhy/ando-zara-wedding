@@ -8,6 +8,7 @@
    section is visually consistent with the others (title + text + button all
    inside one glass card instead of loose content next to a small card). */
 .photobooth__card {
+  position: relative;
   max-width: 500px;
   width: 100%;
   text-align: center;

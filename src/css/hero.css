@@ -1,5 +1,13 @@
 /* === Hero Section === */
 
+@font-face {
+  font-family: 'Kotayk';
+  src: url('../assets/fonts/Kotayk-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 .section--hero {
   background: linear-gradient(
     135deg,
@@ -30,7 +38,7 @@
 }
 
 .hero__names {
-  font-family: var(--font-serif);
+  font-family: 'Kotayk', var(--font-serif);
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: var(--font-weight-thin);
   color: var(--color-primary);
@@ -42,12 +50,11 @@
   display: block;
   font-size: 0.5em;
   color: var(--color-accent);
-  margin: var(--space-md) 0 var(--space-xs);
-  font-style: italic;
+  margin: 0.35rem 0 var(--space-xs);
 }
 
 .hero__subtitle {
-  font-family: var(--font-sans);
+  font-family: 'Kotayk', var(--font-sans);
   font-size: clamp(1rem, 3vw, 1.5rem);
   font-weight: var(--font-weight-extralight);
   color: var(--color-muted);
@@ -57,7 +64,7 @@
 }
 
 .hero__date {
-  font-family: var(--font-serif);
+  font-family: 'Kotayk', var(--font-serif);
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: var(--color-secondary);
   margin-top: var(--space-sm);

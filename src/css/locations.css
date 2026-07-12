@@ -53,16 +53,6 @@
   text-shadow: 0 0 4px rgba(185, 155, 90, 0.9), 0 0 10px rgba(185, 155, 90, 0.75), 0 0 22px rgba(185, 155, 90, 0.6);
 }
 
-.location-card__time-colon {
-  animation: timeColonBlink 1.6s step-start infinite;
-}
-
-@keyframes timeColonBlink {
-  50% {
-    opacity: 0;
-  }
-}
-
 .location-card__address {
   font-family: var(--font-sans);
   font-size: 0.9rem;

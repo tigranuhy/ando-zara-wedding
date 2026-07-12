@@ -87,7 +87,19 @@
   margin-top: var(--space-sm);
 }
 
-@media (orientation: landscape) and (max-height: 500px) {
+@media (orientation: landscape) {
+  .section--hero::before {
+    background-image: url('../assets/images/hero-bg-full.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .hero__content {
+    max-width: 40vh;
+    margin-inline: auto;
+  }
+
   .hero__ornament {
     width: 70px;
     height: 24px;
@@ -99,17 +111,18 @@
   }
 
   .hero__names {
-    font-size: clamp(1.6rem, 9vh, 2.6rem);
+    font-size: clamp(1.3rem, 7.5vh, 2.6rem);
     line-height: 1.05;
   }
 
   .hero__subtitle {
-    font-size: clamp(0.7rem, 3vh, 1rem);
+    font-size: clamp(0.55rem, 2vh, 0.85rem);
+    letter-spacing: 0.08em;
     margin-top: var(--space-xs);
   }
 
   .hero__date {
-    font-size: clamp(0.8rem, 3vh, 1.1rem);
+    font-size: clamp(0.7rem, 2.2vh, 1.05rem);
     margin-top: 2px;
   }
 }

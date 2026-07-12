@@ -15,9 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Marks the page past the envelope-seam loader (see loader.css /
   // animations.css) so the hero's entrance delay — timed to emerge
   // *during* the two pieces separating on first load — doesn't also apply
-  // the next time the hero scrolls back into view.
+  // the next time the hero scrolls back into view. Must wait until the
+  // hero's own transition (2.5s delay + 1.2s duration, see
+  // animations.css) has fully finished, since changing transition-delay/
+  // -duration mid-flight would jump the in-progress animation.
   window.setTimeout(() => {
     document.body.classList.add('loaded');
-  }, 3100);
+  }, 3800);
 });
 

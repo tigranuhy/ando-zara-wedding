@@ -4,13 +4,15 @@
 /* === Hero: Soft fade-in + scale === */
 .section--hero .hero__content {
   opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-  /* Delayed so this plays out *while* the loader's two pieces are
-     separating (loader.css, 1.6s-2.9s) instead of finishing underneath
-     them before the reveal even starts. Cancelled below once body.loaded
-     is set (main.js), so scrolling back to the hero later stays snappy. */
-  transition-delay: 1.55s;
+  transform: scale(0.3);
+  transition: opacity 2.2s ease-out,
+              transform 2.2s ease-out;
+  /* Delayed until the loader's two pieces (loader.css, separating
+     1.6s-2.9s) are almost fully parted, so the zoom plays out in the
+     open instead of hidden underneath them for most of its distance.
+     Shortened and un-delayed below once body.loaded is set (main.js),
+     so scrolling back to the hero later stays snappy. */
+  transition-delay: 1s;
 }
 
 .section--hero.visible .hero__content {
@@ -19,6 +21,7 @@
 }
 
 body.loaded .section--hero .hero__content {
+  transition-duration: 1.2s;
   transition-delay: 0s;
 }
 

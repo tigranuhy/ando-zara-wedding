@@ -61,14 +61,14 @@
 .calendar__day--highlight::after {
   content: '';
   position: absolute;
-  top: -45%;
-  right: -35%;
-  width: 130%;
+  top: -84%;
+  right: -67%;
+  width: 190%;
   aspect-ratio: 100 / 118;
   background-image: url('../assets/images/ring-hearts.webp');
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   pointer-events: none;
   z-index: 1;
   transform: rotate(20deg);

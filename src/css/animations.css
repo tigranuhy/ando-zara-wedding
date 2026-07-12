@@ -215,7 +215,8 @@ body.loaded .section--hero .hero__content {
   .section--locations .location-card:first-child,
   .section--locations .location-card:last-child,
   .section--photobooth .photobooth__card,
-  .section--footer .footer__content {
+  .section--footer .footer__content,
+  .location-card__time-colon {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;

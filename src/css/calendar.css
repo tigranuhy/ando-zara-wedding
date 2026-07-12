@@ -54,11 +54,8 @@
 
 .calendar__day--highlight {
   position: relative;
-  background: var(--color-accent);
-  color: var(--color-white);
+  color: var(--color-accent);
   font-weight: 700;
-  box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 6px rgba(185, 155, 90, 0.3);
-  animation: ringPulse 2s infinite;
 }
 
 .calendar__day--highlight::after {
@@ -75,15 +72,6 @@
   pointer-events: none;
   z-index: 1;
   transform: rotate(20deg);
-}
-
-@keyframes ringPulse {
-  0%, 100% {
-    box-shadow: 0 0 0 3px var(--color-accent), 0 0 0 6px rgba(185, 155, 90, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 0 4px var(--color-accent), 0 0 0 10px rgba(185, 155, 90, 0.1);
-  }
 }
 
 @media (max-width: 380px) {

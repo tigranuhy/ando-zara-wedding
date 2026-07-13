@@ -1,9 +1,9 @@
 /**
  * Countdown Timer
- * Counts down to August 30, 2026 at 12:00 noon Armenia time (UTC+4)
+ * Counts down to August 30, 2026 at 13:40 Armenia time (UTC+4)
  */
 
-const WEDDING_DATE = new Date('2026-08-30T12:00:00+04:00');
+const WEDDING_DATE = new Date('2026-08-30T13:40:00+04:00');
 
 const elements = {
   days: null,
@@ -64,6 +64,14 @@ function updateDisplay() {
   if (time.total <= 0) {
     // Wedding time has arrived!
     clearInterval(intervalId);
+    hideCountdownBlock();
+  }
+}
+
+function hideCountdownBlock() {
+  const countdownBlock = document.querySelector('.countdown-block');
+  if (countdownBlock) {
+    countdownBlock.style.display = 'none';
   }
 }
 
@@ -76,6 +84,11 @@ export function initCountdown() {
   elements.seconds = document.getElementById('countdown-seconds');
 
   if (!elements.days) return;
+
+  if (getTimeRemaining().total <= 0) {
+    hideCountdownBlock();
+    return;
+  }
 
   // Initial update
   updateDisplay();

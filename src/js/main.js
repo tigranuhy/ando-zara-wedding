@@ -6,11 +6,13 @@
 import { initCountdown } from './countdown.js';
 import { initNav } from './nav.js';
 import { initCalendar } from './calendar.js';
+import { initAudio } from './audio.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   initNav();
   initCalendar();
+  initAudio();
 
   const fontsLink = document.getElementById('google-fonts');
   if (fontsLink) fontsLink.media = 'all';

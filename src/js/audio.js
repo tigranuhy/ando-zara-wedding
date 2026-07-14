@@ -1,5 +1,5 @@
 export function initAudio() {
-  if (!new URLSearchParams(location.search).has('audio')) return;
+  if (!new URLSearchParams(location.search).has('she')) return;
 
   const audio = document.getElementById('bg-music');
   if (!audio) return;

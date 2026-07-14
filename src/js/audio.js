@@ -4,7 +4,7 @@ export function initAudio() {
   const audio = document.getElementById('bg-music');
   if (!audio) return;
 
-  audio.src = './assets/audio/she.mp3';
+  audio.src = '/audio/she.mp3';
   audio.volume = 0.4;
 
   const isActive = () => document.visibilityState === 'visible' && document.hasFocus();

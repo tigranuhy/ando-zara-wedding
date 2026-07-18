@@ -209,6 +209,19 @@ body.loaded .section--hero .hero__content {
   }
 }
 
+/* === Notes: Card unfolds open from the top, like a note being unfurled === */
+.section--notes .notes__card {
+  opacity: 0;
+  transform-origin: top center;
+  transform: perspective(700px) rotateX(-80deg) translateY(-20%);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.section--notes.visible .notes__card {
+  opacity: 1;
+  transform: perspective(700px) rotateX(0deg) translateY(0);
+}
+
 /* === Respect reduced motion === */
 @media (prefers-reduced-motion: reduce) {
   .section--hero .hero__content,
@@ -219,7 +232,8 @@ body.loaded .section--hero .hero__content {
   .section--locations .section__title,
   .section--locations .location-card:first-child,
   .section--locations .location-card:last-child,
-  .section--photobooth .photobooth__card {
+  .section--photobooth .photobooth__card,
+  .section--notes .notes__card {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;

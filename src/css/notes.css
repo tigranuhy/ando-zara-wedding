@@ -1,0 +1,43 @@
+/* === Notes Section === */
+
+.section--notes {
+  background: var(--color-bg);
+}
+
+.notes__card {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  padding: var(--space-xl);
+  background: var(--surface-glass);
+  border: 1px solid var(--surface-glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.notes__text {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+@media (max-width: 480px) {
+  .notes__card {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .notes__card {
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  .notes__text {
+    font-size: clamp(0.75rem, 2.8vh, 0.95rem);
+    line-height: 1.35;
+  }
+}

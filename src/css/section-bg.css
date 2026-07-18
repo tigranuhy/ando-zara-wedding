@@ -8,7 +8,8 @@
 
 .section--countdown,
 .section--locations,
-.section--photobooth {
+.section--photobooth,
+.section--notes {
   /* Establish a local stacking context so the ::before's z-index: -1 is
      guaranteed to land behind this section's own content, not the page. */
   isolation: isolate;
@@ -16,7 +17,8 @@
 
 .section--countdown::before,
 .section--locations::before,
-.section--photobooth::before {
+.section--photobooth::before,
+.section--notes::before {
   content: '';
   position: absolute;
   inset: 0;
